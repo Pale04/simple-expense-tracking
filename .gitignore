@@ -43,3 +43,66 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# Built application files
+*.apk
+*.ap_
+# Files for the ART/Dalvik VM
+*.dex
+# Generated files
+.gradle/
+captures/
+# Local configuration files (e.g., local.properties)
+local.properties
+# Gradle wrapper files
+gradlew
+gradlew.bat
+# Keystore files (uncomment if you don't want to commit them)
+#*.jks
+#*.keystore
+# External native build files
+.externalNativeBuild/
+
+# 1. GENERACIÓN DE DART (PAQUETES Y CÓDIGO GENERADO)
+# Directorio donde se almacena el caché de paquetes Dart/Flutter
+.dart_tool/
+# Archivos de caché de dependencias generados por pub
+.packages
+# Archivos de código generado comúnmente (e.g., Freezed, JsonSerializable)
+# Incluye archivos .g.dart y .gr.dart (para auto_route)
+**/*.g.dart
+**/*.gr.dart
+# Archivos de la herramienta de testing (solo si los generas fuera de build/)
+coverage/
+
+# 2. ESPECÍFICOS DE IOS Y MACOS
+# Archivos de caché y logs de Xcode
+/ios/.symlinks/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/App.framework
+/ios/Flutter/engine
+/ios/Flutter/podhelper.rb
+/macos/Flutter/Generated.xcconfig
+# Carpetas de caché de CocoaPods
+/ios/.ios-cache
+/ios/Pods/
+/macos/Pods/
+
+# 3. ESPECÍFICOS DE WEB
+# La carpeta de compilación para web (aunque ya está incluida en /build)
+/web/
+
+# 4. ESPECÍFICOS DE VISUAL STUDIO CODE (VS CODE)
+# Carpetas de archivos temporales y configuración de VS Code
+.vscode/launch.json
+.vscode/tasks.json
+# Puedes comentar la línea de abajo si quieres compartir la configuración de VS Code con el equipo
+#.vscode/settings.json
+
+# 5. GENERALES Y TEMPORALES
+# Archivos de backup o temporales creados por editores
+*~
+# Logs y otros archivos de caché
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
