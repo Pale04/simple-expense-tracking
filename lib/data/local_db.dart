@@ -6,9 +6,10 @@ Future<Database> initializeLocalDb() async {
   return await openDatabase(
     join(await getDatabasesPath(), databaseName),
     onCreate: (db, version) {
-      return db.execute(
-        'CREATE TABLE expenses(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT)',
-      );
+      return db.execute('''
+        CREATE TABLE expenses(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT);
+        CREATE TABLE incomes(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT):
+      ''');
     },
     version: 1,
   );

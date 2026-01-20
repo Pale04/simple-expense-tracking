@@ -1,12 +1,12 @@
 import 'package:intl/intl.dart';
 
-class Expense {
+class Income {
   int? id;
   String title;
   double amount;
   DateTime date;
 
-  Expense({
+  Income({
     this.id,
     required this.title,
     required this.amount,
@@ -27,12 +27,12 @@ class Expense {
     return map;
   }
 
-  factory Expense.fromMap(Map<String, Object?> map) {
-    return Expense(
-      id: map['id'] as int?,
-      title: map['title'] as String,
-      amount: map['amount'] as double,
-      date: DateTime.parse(map['date'] as String)
+  factory Income.fromMap(Map<String, Object?> map) {
+    return Income(
+        id: map['id'] as int?,
+        title: map['title'] as String,
+        amount: map['amount'] as double,
+        date: DateTime.parse(map['date'] as String)
     );
   }
 }

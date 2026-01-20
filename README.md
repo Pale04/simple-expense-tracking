@@ -71,10 +71,9 @@ The project follows the next folders structure:
 ```
 lib
 ├─┬─ ui
-│ ├─┬─ core
-│ │ ├─┬─ shared
-│ │ │ └─── <shared widgets>
-│ │ └─── theme
+│ ├─┬─ shared
+│ │ └─── <shared widgets>
+│ ├─── theme
 │ └─┬─ <FEATURE NAME>
 │   ├─── <view_model class>.dart
 │   └─── <feature name>_screen.dart
