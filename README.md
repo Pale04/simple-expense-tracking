@@ -20,12 +20,16 @@ This app is recommended for students, housewives and people who has a rapid life
 ## Features
 
 ### Available features
-- Add and Delete expenses.
-- Watch the overall spent money.
+- Expenses management:
+  - Add expense
+  - Remove expense
+- Incomes management:
+  - Add income
+- Watch the overall spent money
 
 ### Upcoming features
 - Update expense.
-- Add, delete and update incomes.
+- Delete and update incomes.
 - View statistics about the expenses and incomes.
 - Custom tags/categories for expenses and incomes.
 - Search and filter transactions

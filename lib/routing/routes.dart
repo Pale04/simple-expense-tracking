@@ -1,0 +1,4 @@
+abstract final class Routes {
+  static const summaryScreen = '/summary';
+  static const expensesHistory = '/history';
+}
