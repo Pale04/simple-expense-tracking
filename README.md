@@ -6,18 +6,18 @@ This app is recommended for students, housewives and people who has a rapid life
 
 ## Table of Contents
 
-- [Features](#features)
+- [Project planning](#project-planning)
     - [Available features](#available-features)
     - [Upcoming features](#upcoming-features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Development process](#development-process)
     - [Design](#design)
-    - [Coding](#coding)
+    - [Coding](#implementation)
     - [Testing](#testing)
 - [License](#license)
 
-## Features
+## Project planning
 
 ### Available features
 - Expenses management:
@@ -28,16 +28,17 @@ This app is recommended for students, housewives and people who has a rapid life
 - Watch the overall spent money
 
 ### Upcoming features
-- Update expense.
-- Delete and update incomes.
-- View statistics about the expenses and incomes.
-- Custom tags/categories for expenses and incomes.
-- Search and filter transactions
-- Add recurring transactions
-- Implement dark mode
-- Cloud backup support
-- Export data to PDF
-- Internationalized UI for spanish language.
+1. Search and filter transactions (incomes/expenses)
+2. Delete income
+3. Update expense
+4. Update incomes.
+5. Show statistics about financial activity
+6. Create custom tags/categories for expenses and incomes
+7. Schedule recurring transactions
+8. Dark mode support
+9. Cloud backup support
+10. Export financial activity report to PDF
+11. Internationalized UI for spanish language
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.
@@ -53,7 +54,7 @@ The following instructions show how to install the project in your computer in o
 
 ## Usage
 
-*Available after releasing the first version*.
+*Section Available after releasing the first version*.
 
 ## Development process
 This section contains relevant information about the analysis, design decisions, key elements, coding practices and testing planning.
@@ -113,7 +114,7 @@ The project follows the coding standards of flutter applications.
 | **logging**    | Add logging through the application layers     |
 
 ### Testing
-*Testing plan upcoming*
+*Testing planning upcoming*
 
 ## License
 This project is licensed under the MIT License.
