@@ -15,7 +15,7 @@ This app is recommended for students, housewives and people who has a rapid life
     - [Design](#design)
     - [Implementation](#implementation)
     - [Testing](#testing)
-- [License](#license)
+- [License](#license) 
 
 ## Project planning
 

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_expense_tracking/domain_models/expense.dart';
 import 'package:simple_expense_tracking/ui/shared/app_bottom_sheet.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class ExpenseRegistrationBottomSheet extends StatelessWidget {
   final Future<void> Function(Expense) _onExpenseSaved;
@@ -67,6 +68,7 @@ class _ExpenseRegistrationFormState extends State<_ExpenseRegistrationForm> {
             spacing: 14,
             children: [
               Expanded(
+                flex: 5,
                 child: TextFormField(
                   validator: (value) => value == null || value.trim().isEmpty ? 'Enter a date' : null,
                   controller: _dateController,
@@ -75,21 +77,34 @@ class _ExpenseRegistrationFormState extends State<_ExpenseRegistrationForm> {
                     suffixIcon: Icon(Icons.calendar_today)
                   ),
                   onTap: () async {
-                    final DateTime? pickedDate = await showDatePicker(
+                    await showDialog(
                       context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(DateTime.now().year - 1),
-                      lastDate: DateTime.now()
+                      builder: (BuildContext context) => Dialog(
+                        child: SizedBox(
+                          height: 350,
+                          child: SfDateRangePicker(
+                            backgroundColor: Colors.white,
+                            initialSelectedDate: DateTime.now(),
+                            showNavigationArrow: true,
+                            showActionButtons: true,
+                            onSubmit: (value) {
+                              _selectedDate = value as DateTime;
+                              _dateController.text = DateFormat('dd/MM/yyyy').format(_selectedDate);
+                              Navigator.pop(context);
+                            },
+                            onCancel: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        )
+                      ),
                     );
-                    if (pickedDate != null) {
-                      _selectedDate = pickedDate;
-                      _dateController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
-                    }
                   },
                   readOnly: true,
                 ),
               ),
               Expanded(
+                flex: 3,
                 child: TextFormField(
                   validator: (value) => value == null || value.trim().isEmpty ? 'Enter an amount' : null,
                   controller: _amountController,
