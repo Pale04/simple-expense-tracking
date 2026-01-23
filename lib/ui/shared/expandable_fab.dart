@@ -141,10 +141,11 @@ class _ExpandableFabState extends State<ExpandableFab> with SingleTickerProvider
 
 @immutable
 class ActionButton extends StatelessWidget {
-  const ActionButton({super.key, this.onPressed, required this.icon});
+  const ActionButton({super.key, this.onPressed, this.color, required this.icon});
 
   final VoidCallback? onPressed;
   final Widget icon;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +153,7 @@ class ActionButton extends StatelessWidget {
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAlias,
-      color: theme.colorScheme.secondary,
+      color: color ?? theme.colorScheme.secondary,
       elevation: 4,
       child: IconButton(
         onPressed: onPressed,

@@ -1,6 +1,6 @@
 # Simple Expense Tracking App
 
-This Android app offers a simple and easy manner of track your expenses and incomes. An internet connection is not necessary because all the data is stored locally. So you can add an expense or income at any time, for example, on the bus, in a supermarket or even being a forest.
+This Android app offers a simple and easy manner of track your expenses and income. An internet connection is not necessary because all the data is stored locally. So you can add an expense or income at any time, for example, on the bus, in a supermarket or even being a forest.
 
 This app is recommended for students, housewives and people who has a rapid life style and want to manage and track their money.
 
@@ -13,7 +13,7 @@ This app is recommended for students, housewives and people who has a rapid life
 - [Usage](#usage)
 - [Development process](#development-process)
     - [Design](#design)
-    - [Coding](#implementation)
+    - [Implementation](#implementation)
     - [Testing](#testing)
 - [License](#license)
 

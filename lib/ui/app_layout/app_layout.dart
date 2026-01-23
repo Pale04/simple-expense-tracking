@@ -77,7 +77,11 @@ class _AppLayoutState extends State<AppLayout> {
                 }
               });
             },
-            icon: const Icon(Icons.savings_outlined),
+            icon: const Icon(
+              Icons.trending_up_outlined,
+              color: Color(0xFFF0FDF4),
+            ),
+            color: Color(0xFF2EA63E),
           ),
           ActionButton(
             onPressed: () {
@@ -97,7 +101,11 @@ class _AppLayoutState extends State<AppLayout> {
                 }
               });
             },
-            icon: const Icon(Icons.money_off_outlined),
+            icon: const Icon(
+              Icons.trending_down_outlined,
+              color: Color(0xFFFFF7ED),
+            ),
+            color: Color(0xFFF76F33),
           ),
         ],
       ),
