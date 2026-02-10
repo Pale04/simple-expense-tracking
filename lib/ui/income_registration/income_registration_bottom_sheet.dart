@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_expense_tracking/domain_models/income.dart';
 import 'package:simple_expense_tracking/ui/shared/app_bottom_sheet.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:simple_expense_tracking/ui/shared/date_picker_form_field.dart';
 
 class IncomeRegistrationBottomSheet extends StatelessWidget {
   final Future<void> Function(Income) _onIncomeSaved;
@@ -69,38 +69,13 @@ class _IncomeRegistrationFormState extends State<_IncomeRegistrationForm> {
             children: [
               Expanded(
                 flex: 5,
-                child: TextFormField(
-                  validator: (value) => value == null || value.trim().isEmpty ? 'Enter a date' : null,
+                child: DatePickerFormField(
                   controller: _dateController,
-                  decoration: InputDecoration(
-                    hintText: 'Date',
-                    suffixIcon: Icon(Icons.calendar_today)
-                  ),
-                  onTap: () async {
-                    await showDialog(
-                      context: context,
-                      builder: (BuildContext context) => Dialog(
-                        child: SizedBox(
-                          height: 350,
-                          child: SfDateRangePicker(
-                            backgroundColor: Colors.white,
-                            initialSelectedDate: DateTime.now(),
-                            showNavigationArrow: true,
-                            showActionButtons: true,
-                            onSubmit: (value) {
-                              _selectedDate = value as DateTime;
-                              _dateController.text = DateFormat('dd/MM/yyyy').format(_selectedDate);
-                              Navigator.pop(context);
-                            },
-                            onCancel: () {
-                              Navigator.pop(context);
-                            },
-                          ),
-                        )
-                      ),
-                    );
+                  onDateSelected: (dateRange) {
+                    _selectedDate = dateRange[0];
+                    _dateController.text = DateFormat('dd/MM/yyyy').format(dateRange[0]);
                   },
-                  readOnly: true,
+                  initialSelectedDates: [_selectedDate],
                 ),
               ),
               Expanded(
