@@ -29,16 +29,17 @@ This app is recommended for students, housewives and people who has a rapid life
 
 ### Upcoming features
 1. Search and filter transactions (incomes/expenses)
-2. Delete income
-3. Update expense
-4. Update incomes.
-5. Show statistics about financial activity
-6. Create custom tags/categories for expenses and incomes
-7. Schedule recurring transactions
-8. Dark mode support
-9. Cloud backup support
-10. Export financial activity report to PDF
-11. Internationalized UI for spanish language
+2. Customize currency
+3. Delete income
+4. Update expense
+5. Update incomes.
+6. Show statistics about financial activity
+7. Create custom tags/categories for expenses and incomes
+8. Schedule recurring transactions
+9. Dark mode support
+10. Cloud backup support
+11. Export financial activity report to PDF
+12. Internationalized UI for spanish language
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.

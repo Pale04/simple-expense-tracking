@@ -115,23 +115,22 @@ class ExpenseRepositoryLocal extends ExpenseRepository {
   }
   
   @override
-  Future<List<Expense>> getExpenses(DateTime? cursor, int pageSize) async {
+  Future<List<Expense>> getExpensesByDatesRange(DateTime from, DateTime to) async {
     List<Map<String, Object?>?> queryResult;
     List<Expense> expenses = List.empty(growable: true);
 
     try {
       queryResult = await _database.query(
-        expensesTableName,
-        where: 'date <= ?',
-        whereArgs: [DateFormat('yyyy-MM-dd').format(cursor ?? DateTime.now())],
-        orderBy: 'date',
-        limit: pageSize
+          expensesTableName,
+          where: 'date >= ? AND date <= ?',
+          whereArgs: [DateFormat('yyyy-MM-dd').format(from), DateFormat('yyyy-MM-dd').format(to)],
+          orderBy: 'date',
       );
     } on DatabaseException catch (error) {
       _log.warning('Expenses query failed', error);
       return expenses;
     }
-    
+
     for (var expense in queryResult) {
       expenses.add(Expense.fromMap(expense!));
     }

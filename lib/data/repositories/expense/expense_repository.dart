@@ -5,6 +5,6 @@ abstract class ExpenseRepository {
   Future<bool> updateExpense(Expense expense);
   Future<bool> deleteExpense(int id);
   Future<Expense?> getExpense(int id);
-  Future<List<Expense>> getExpenses(DateTime? cursor, int pageSize);
+  Future<List<Expense>> getExpensesByDatesRange(DateTime from, DateTime to);
   Future<double> getTotalSpent();
 }
