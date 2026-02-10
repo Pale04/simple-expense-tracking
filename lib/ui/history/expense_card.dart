@@ -5,7 +5,11 @@ class ExpenseCard extends StatelessWidget {
   final Expense _expense;
   final void Function(int) _onExpenseTapped;
 
-  const ExpenseCard({super.key, required Expense expense, required void Function(int) onExpenseTapped}) : _expense = expense, _onExpenseTapped = onExpenseTapped;
+  const ExpenseCard({
+    super.key,
+    required Expense expense,
+    required void Function(int) onExpenseTapped}
+  ) : _expense = expense, _onExpenseTapped = onExpenseTapped;
 
   @override
   Widget build(BuildContext context) {

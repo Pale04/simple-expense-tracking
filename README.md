@@ -23,18 +23,19 @@ This app is recommended for students, housewives and people who has a rapid life
 - Expenses management:
   - Add expense
   - Remove expense
-- Incomes management:
+- Income management:
   - Add income
-- Watch the overall spent money
+- View total spent money
+- Search expenses/income by date
 
 ### Upcoming features
-1. Search and filter transactions (incomes/expenses)
-2. Customize currency
-3. Delete income
-4. Update expense
-5. Update incomes.
-6. Show statistics about financial activity
-7. Create custom tags/categories for expenses and incomes
+1. Customize currency sign
+2. Delete income
+3. Update expense
+4. Update incomes.
+5. Show statistics about financial activity
+6. Create custom tags/categories for expenses and incomes
+7. Filter income/expenses in searching feature
 8. Schedule recurring transactions
 9. Dark mode support
 10. Cloud backup support
