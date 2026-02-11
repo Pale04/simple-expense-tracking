@@ -157,7 +157,7 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
                               children: [
                                 SimpleDialogOption(
                                   onPressed: () {
-                                    widget._viewModel.deleteExpense(incomeId);
+                                    widget._viewModel.deleteIncome(incomeId);
                                     Navigator.pop(context);
                                   },
                                   child: const Text('Delete'),

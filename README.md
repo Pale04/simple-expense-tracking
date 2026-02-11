@@ -25,22 +25,22 @@ This app is recommended for students, housewives and people who has a rapid life
   - Remove expense
 - Income management:
   - Add income
+  - Delete income
 - View total spent money
 - Search expenses/income by date
 
 ### Upcoming features
 1. Customize currency sign
-2. Delete income
-3. Update expense
-4. Update incomes.
-5. Show statistics about financial activity
-6. Create custom tags/categories for expenses and incomes
-7. Filter income/expenses in searching feature
-8. Schedule recurring transactions
-9. Dark mode support
-10. Cloud backup support
-11. Export financial activity report to PDF
-12. Internationalized UI for spanish language
+2. Update expense
+3. Update incomes.
+4. Show statistics about financial activity
+5. Create custom tags/categories for expenses and incomes
+6. Filter income/expenses in searching feature
+7. Schedule recurring transactions
+8. Dark mode support
+9. Cloud backup support
+10. Export financial activity report to PDF
+11. Internationalized UI for spanish language
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.
@@ -105,15 +105,17 @@ test
 The project follows the coding standards of flutter applications.
 
 #### Libraries
-| Library        | Purpose                                        |
-|----------------|------------------------------------------------|
-| **sqflite**    | Implement data persistence locally with SQLite |
-| **path**       | Manipulate paths                               |
-| **provider**   | Manage dependency injection                    |
-| **go_router**  | Manage the UI routing and navigation           |
-| **intl**       | Format data, such as dates and times           |
-| **command_it** | Implement the command pattern in the UI layer  |
-| **logging**    | Add logging through the application layers     |
+| Library                           | Purpose                                        |
+|-----------------------------------|------------------------------------------------|
+| **sqflite**                       | Implement data persistence locally with SQLite |
+| **path**                          | Manipulate paths                               |
+| **provider**                      | Manage dependency injection                    |
+| **go_router**                     | Manage the UI routing and navigation           |
+| **intl**                          | Format data, such as dates and times           |
+| **command_it**                    | Implement the command pattern in the UI layer  |
+| **logging**                       | Add logging through the application layers     |
+| **syncfusion_flutter_datepicker** | Enhance UX in forms with date pickers          |
+| **shared_preferences**            | Store key-value data locally                   |
 
 ### Testing
 *Testing planning upcoming*

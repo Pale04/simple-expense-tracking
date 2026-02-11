@@ -54,6 +54,7 @@ class HistoryScreenViewModel extends ChangeNotifier {
   }
 
   void deleteIncome(incomeId) async {
-
+    await _incomeRepository.deleteIncome(incomeId);
+    getIncomeList(dateRange[0], dateRange[1]);
   }
 }

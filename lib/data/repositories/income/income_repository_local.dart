@@ -50,4 +50,25 @@ class IncomeRepositoryLocal extends IncomeRepository {
 
     return incomeList;
   }
+
+  @override
+  Future<bool> deleteIncome(int id) async {
+    int rowsAffected = 0;
+
+    try {
+      rowsAffected = await _database.delete(
+          incomesTableName,
+          where: 'id = ?',
+          whereArgs: [id]
+      );
+    } on DatabaseException catch (error) {
+      _log.warning('Income deletion failed', error);
+    }
+
+    if (rowsAffected != 1) {
+      _log.warning('Income deletion executed with a bad result. Rows affected: $rowsAffected');
+    }
+
+    return rowsAffected == 1;
+  }
 }
