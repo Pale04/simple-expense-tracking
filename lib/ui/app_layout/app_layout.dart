@@ -22,13 +22,12 @@ class _AppLayoutState extends State<AppLayout> {
         title: Text(
           'Hello, Pale!',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              color: Colors.white
+            color: Colors.white
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Container(
-        padding: EdgeInsets.all(8),
         child: widget._child
       ),
       bottomNavigationBar: NavigationBar(
@@ -53,6 +52,14 @@ class _AppLayoutState extends State<AppLayout> {
             ),
             icon: Icon(Icons.payments_outlined),
             label: 'History'
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(
+              Icons.settings_sharp,
+              color: Theme.of(context).colorScheme.onTertiary
+            ),
+            icon: Icon(Icons.settings_outlined),
+            label: 'Settings'
           ),
         ],
       ),

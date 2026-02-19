@@ -28,19 +28,21 @@ This app is recommended for students, housewives and people who has a rapid life
   - Delete income
 - View total spent money
 - Search expenses/income by date
+- Customize currency symbol
 
 ### Upcoming features
-1. Customize currency sign
-2. Update expense
-3. Update incomes.
-4. Show statistics about financial activity
-5. Create custom tags/categories for expenses and incomes
-6. Filter income/expenses in searching feature
-7. Schedule recurring transactions
-8. Dark mode support
-9. Cloud backup support
-10. Export financial activity report to PDF
-11. Internationalized UI for spanish language
+1. Create custom tags/categories for expenses
+2. Show statistics about month expenses
+3. Update expense
+4. Update incomes.
+5. Show extra statistics about financial activity
+6. Create custom tags/categories incomes
+7. Filter income/expenses in searching feature
+8. Schedule recurring transactions
+9. Dark mode support
+10. Cloud backup support
+11. Export financial activity report to PDF
+12. Internationalized UI for spanish language
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.

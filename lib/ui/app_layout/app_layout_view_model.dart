@@ -25,8 +25,10 @@ class AppLayoutViewModel extends ChangeNotifier {
     final String location = GoRouterState.of(context).uri.path;
     if (location == Routes.summaryScreen) {
       page = 0;
-    } else {
+    } else if(location == Routes.expensesHistory) {
       page = 1;
+    } else {
+      page = 2;
     }
   }
 
@@ -36,6 +38,8 @@ class AppLayoutViewModel extends ChangeNotifier {
         GoRouter.of(_context).go(Routes.summaryScreen);
       case 1:
         GoRouter.of(_context).go(Routes.expensesHistory);
+      case 2:
+        GoRouter.of(_context).go(Routes.settingsScreen);
     }
   }
 
