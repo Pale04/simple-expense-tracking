@@ -38,7 +38,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                         listenable: widget._viewModel,
                         builder: (context, child) {
                           return Text(
-                            widget._viewModel.currency.name.toUpperCase(),
+                            '${widget._viewModel.currency.name.toUpperCase()} (${widget._viewModel.currency.symbol})',
                             style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white),
                           );
                         }
@@ -69,7 +69,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                                         itemCount: Currency.values.length,
                                         itemBuilder: (context, index) {
                                           return RadioListTile<Currency>(
-                                            title: Text(Currency.values[index].name.toUpperCase()),
+                                            title: Text('${Currency.values[index].name.toUpperCase()} (${Currency.values[index].symbol})'),
                                             value: Currency.values[index],
                                           );
                                         }

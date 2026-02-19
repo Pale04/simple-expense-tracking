@@ -125,6 +125,7 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
                   if(widget._viewModel.actualTab == 0) {
                     return ExpenseCard(
                       expense: widget._viewModel.expensesList[index],
+                      currencySymbol: widget._viewModel.currency.symbol,
                       onExpenseTapped: (expenseId) {
                         showDialog(
                           context: context,
@@ -148,6 +149,7 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
                   } else {
                     return IncomeCard(
                       income: widget._viewModel.incomeList[index],
+                      currencySymbol: widget._viewModel.currency.symbol,
                       onCardTapped: (incomeId) {
                         showDialog(
                           context: context,

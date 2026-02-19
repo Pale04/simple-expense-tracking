@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
 import 'package:simple_expense_tracking/data/repositories/settings/settings_repository.dart';
+import 'package:simple_expense_tracking/domain_models/currency.dart';
 import '../../data/repositories/expense/expense_repository.dart';
 
 class SummaryScreenViewModel extends ChangeNotifier{
@@ -8,14 +9,14 @@ class SummaryScreenViewModel extends ChangeNotifier{
   final ExpenseRepository _expenseRepository;
 
   double totalSpent = 0.0;
-  late String currency;
+  late Currency currency;
 
   SummaryScreenViewModel({
     required ExpenseRepository expenseRepository,
     required SettingsRepository settingsRepository
   }) : _expenseRepository = expenseRepository {
     init();
-    currency = settingsRepository.getCurrencySign().name.toUpperCase();
+    currency = settingsRepository.getCurrencySign();
   }
 
   Future<void> init() async {

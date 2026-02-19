@@ -43,6 +43,7 @@ This app is recommended for students, housewives and people who has a rapid life
 10. Cloud backup support
 11. Export financial activity report to PDF
 12. Internationalized UI for spanish language
+13. Manage expenses and incomes with different currencies at the same time
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.

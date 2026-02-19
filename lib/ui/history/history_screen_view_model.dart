@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart';
 import 'package:simple_expense_tracking/data/repositories/income/income_repository.dart';
+import 'package:simple_expense_tracking/data/repositories/settings/settings_repository.dart';
+import 'package:simple_expense_tracking/domain_models/currency.dart';
 import 'package:simple_expense_tracking/domain_models/expense.dart';
 import 'package:simple_expense_tracking/domain_models/income.dart';
 import '../../data/repositories/expense/expense_repository.dart';
@@ -14,16 +16,20 @@ class HistoryScreenViewModel extends ChangeNotifier {
   int actualTab = 0;
   List<Expense> expensesList = List.empty();
   List<Income> incomeList = List.empty();
+  late Currency currency;
 
   HistoryScreenViewModel({
     required ExpenseRepository expenseRepository,
-    required IncomeRepository incomeRepository} )
-    : _expenseRepository = expenseRepository, _incomeRepository = incomeRepository {
+    required IncomeRepository incomeRepository,
+    required SettingsRepository settingsRepository
+  }) : _expenseRepository = expenseRepository, _incomeRepository = incomeRepository {
     _expenseRepository.getExpensesByDatesRange(dateRange[0], dateRange[1])
       .then((list) {
         expensesList = list;
         notifyListeners();
       });
+
+    currency = settingsRepository.getCurrencySign();
   }
 
   void updateActualTab(int tab) async {

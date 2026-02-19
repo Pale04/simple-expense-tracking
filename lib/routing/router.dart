@@ -25,7 +25,7 @@ GoRouter router() => GoRouter(
         ),
         GoRoute(
             path: Routes.expensesHistory,
-            builder: (context, _) => HistoryScreen(viewModel: HistoryScreenViewModel(expenseRepository: context.read(), incomeRepository: context.read()),)
+            builder: (context, _) => HistoryScreen(viewModel: HistoryScreenViewModel(expenseRepository: context.read(), incomeRepository: context.read(), settingsRepository: context.read()) )
         ),
         GoRoute(
           path: Routes.settingsScreen,

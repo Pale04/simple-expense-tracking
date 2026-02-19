@@ -36,11 +36,16 @@ class SummaryScreenState extends State<SummaryScreen> {
                     builder: (context, child) {
                       return RichText(
                         text: TextSpan(
-                          text: "\$${widget._viewModel.totalSpent.toString()} ",
-                          style: Theme.of(context).textTheme.displaySmall,
+                          text: "${widget._viewModel.currency.symbol} ",
+                          style: Theme.of(context).textTheme.headlineMedium,
                           children: [
                             TextSpan(
-                              text: widget._viewModel.currency,
+                              text: widget._viewModel.totalSpent.toString(),
+                              style: Theme.of(context).textTheme.displaySmall
+                            ),
+                            TextSpan(text: '  '),
+                            TextSpan(
+                              text: widget._viewModel.currency.name.toUpperCase(),
                               style: Theme.of(context).textTheme.titleLarge,
                             )
                           ]
