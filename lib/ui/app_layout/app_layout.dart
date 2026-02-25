@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_expense_tracking/ui/expense_registration/expense_registration_bottom_sheet.dart';
 import 'package:simple_expense_tracking/ui/app_layout/app_layout_view_model.dart';
 import 'package:simple_expense_tracking/ui/income_registration/income_registration_bottom_sheet.dart';
 import 'package:simple_expense_tracking/ui/shared/expandable_fab.dart';
+import '../../routing/routes.dart';
 
 class AppLayout extends StatefulWidget {
   final AppLayoutViewModel _viewModel;
@@ -26,14 +28,23 @@ class _AppLayoutState extends State<AppLayout> {
           ),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.white,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            );
+          },
+        ),
       ),
       body: Container(
         child: widget._child
       ),
       bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (index) {
-          widget._viewModel.changePage(index);
-        },
+        onDestinationSelected: (index) => widget._viewModel.changePage(index),
         indicatorColor: Theme.of(context).colorScheme.tertiary,
         selectedIndex: widget._viewModel.page,
         destinations: [
@@ -118,6 +129,23 @@ class _AppLayoutState extends State<AppLayout> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       resizeToAvoidBottomInset: false,
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              height: 91,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            ListTile(
+              title: const Text('Categories'),
+              onTap: () {
+                Navigator.pop(context);
+                GoRouter.of(context).push(Routes.categoriesScreen);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 

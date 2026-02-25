@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:simple_expense_tracking/routing/routes.dart';
 import 'package:simple_expense_tracking/ui/app_layout/app_layout.dart';
 import 'package:simple_expense_tracking/ui/app_layout/app_layout_view_model.dart';
+import 'package:simple_expense_tracking/ui/categories/categories_screen.dart';
+import 'package:simple_expense_tracking/ui/categories/categories_screen_view_model.dart';
 import 'package:simple_expense_tracking/ui/history/history_screen.dart';
 import 'package:simple_expense_tracking/ui/history/history_screen_view_model.dart';
 import 'package:simple_expense_tracking/ui/settings/settings_screen.dart';
@@ -32,6 +34,10 @@ GoRouter router() => GoRouter(
           builder: (context, _) => SettingsScreen(viewModel: SettingsScreenViewModel(settingsRepository: context.read()),)
         )
       ]
+    ),
+    GoRoute(
+      path: Routes.categoriesScreen,
+      builder: (context, _) => CategoriesScreen(viewModel: CategoriesScreenViewModel(repository: context.read()),)
     )
   ]
 );

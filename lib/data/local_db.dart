@@ -6,11 +6,17 @@ Future<Database> initializeLocalDb() async {
   return await openDatabase(
     join(await getDatabasesPath(), databaseName),
     onCreate: (db, version) {
-      return db.execute('CREATE TABLE expenses(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT);');
+      return db.execute(
+          '''CREATE TABLE expenses(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT);
+          CREATE TABLE income(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT);
+          CREATE TABLE categories(id INTEGER PRIMARY KEY, name TEXT, color INTEGER);'''
+      );
     },
-    onUpgrade: (db, _, _) {
-      return db.execute('CREATE TABLE income(id INTEGER PRIMARY KEY, title TEXT, amount REAL, date TEXT);');
+    onUpgrade: (db, oldVersion, newVersion) {
+      return db.execute('''CREATE TABLE categories(id INTEGER PRIMARY KEY, name TEXT, color INTEGER);
+                        INSERT INTO expense_category SELECT * FROM expense_category;
+                        DROP TABLE IF EXISTS expense_category''');
     },
-    version: 3,
+    version: 5,
   );
 }
