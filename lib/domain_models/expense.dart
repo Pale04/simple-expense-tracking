@@ -1,30 +1,29 @@
 import 'package:intl/intl.dart';
+import 'package:simple_expense_tracking/domain_models/category.dart';
 
 class Expense {
   int? id;
   String title;
   double amount;
   DateTime date;
+  Category category;
 
   Expense({
     this.id,
+    required this.category,
     required this.title,
     required this.amount,
     required this.date
   });
 
   Map<String, Object?> toMap() {
-    var map = {
+    return {
+      'id': id,
       'title': title,
       'amount': amount,
-      'date': DateFormat('yyyy-MM-dd').format(date)
+      'date': DateFormat('yyyy-MM-dd').format(date),
+      'category_id': category.id
     };
-
-    if (id != null) {
-      map['id'] = id!;
-    }
-
-    return map;
   }
 
   factory Expense.fromMap(Map<String, Object?> map) {
@@ -32,7 +31,12 @@ class Expense {
       id: map['id'] as int?,
       title: map['title'] as String,
       amount: map['amount'] as double,
-      date: DateTime.parse(map['date'] as String)
+      date: DateTime.parse(map['date'] as String),
+      category: Category.fromMap({
+        'id': map['c_id'],
+        'name': map['name'],
+        'color': map['color']
+      })
     );
   }
 }

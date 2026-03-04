@@ -14,17 +14,12 @@ class Income {
   });
 
   Map<String, Object?> toMap() {
-    var map = {
+    return {
+      'id': id,
       'title': title,
       'amount': amount,
       'date': DateFormat('yyyy-MM-dd').format(date)
     };
-
-    if (id != null) {
-      map['id'] = id!;
-    }
-
-    return map;
   }
 
   factory Income.fromMap(Map<String, Object?> map) {

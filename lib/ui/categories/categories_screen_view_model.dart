@@ -13,6 +13,7 @@ class CategoriesScreenViewModel extends ChangeNotifier {
 
   void getCategories() async {
     expenseCategories = await _repository.getAllCategories();
+    expenseCategories.removeAt(0);
     notifyListeners();
   }
 
@@ -22,7 +23,9 @@ class CategoriesScreenViewModel extends ChangeNotifier {
   }
 
   void deleteCategory(int id) async {
-    await _repository.deleteExpenseCategory(id);
-    getCategories();
+    if (await _repository.getCategory(id) == null) {
+      await _repository.deleteExpenseCategory(id);
+      getCategories();
+    }
   }
 }

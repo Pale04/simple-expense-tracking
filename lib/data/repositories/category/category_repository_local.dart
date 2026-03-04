@@ -68,4 +68,27 @@ class CategoryRepositoryLocal extends CategoryRepository {
     return expenseCategories;
   }
 
+  @override
+  Future<Category?> getCategory(int id) async {
+    List<Map<String, Object?>?> queryResult;
+    Category? category;
+
+    try {
+      queryResult = await _database.query(
+        categoriesTableName,
+        where: 'id = ?',
+        whereArgs: [id]
+      );
+    } on DatabaseException catch (error) {
+      _log.warning('Categories query failed', error);
+      return null;
+    }
+
+    if (queryResult.isNotEmpty) {
+      category = Category.fromMap(queryResult.first!);
+    }
+
+    return category;
+  }
+
 }

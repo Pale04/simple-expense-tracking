@@ -22,6 +22,7 @@ This app is recommended for students, housewives and people who has a rapid life
 ### Available features
 - Expenses management:
   - Add expense
+  - Update category
   - Remove expense
 - Income management:
   - Add income
@@ -29,21 +30,26 @@ This app is recommended for students, housewives and people who has a rapid life
 - View total spent money
 - Search expenses/income by date
 - Customize currency symbol
+- Categories management:
+  - Add category
+  - Remove category
 
 ### Upcoming features
-1. Create custom tags/categories for expenses
-2. Show statistics about month expenses
-3. Update expense
-4. Update incomes.
-5. Show extra statistics about financial activity
-6. Create custom tags/categories incomes
-7. Filter income/expenses in searching feature
-8. Schedule recurring transactions
-9. Dark mode support
-10. Cloud backup support
-11. Export financial activity report to PDF
-12. Internationalized UI for spanish language
-13. Manage expenses and incomes with different currencies at the same time
+1. Chart with expenses statistics per month
+2. Update category
+3. More available colors for category customization
+4. Show statistics about month expenses
+5. Update expense
+6. Update incomes
+7. Show extra statistics about financial activity
+8. Create custom tags/categories incomes
+9. Filter income/expenses in searching feature
+10. Schedule recurring transactions
+11. Dark mode support
+12. Cloud backup support
+13. Export financial activity report to PDF
+14. Internationalized UI for spanish language
+15. Manage expenses and incomes with different currencies at the same time
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.
@@ -69,7 +75,7 @@ This section contains relevant information about the analysis, design decisions,
 #### Data modeling
 Ths following diagram shows the domain classes used to store and transport data through the application.
 
-![Classes Diagram](./docs/SimpleEspenseTracking.drawio.png)
+![Classes Diagram](./docs/SimpleExpenseTracking.drawio.png)
 
 #### Architecture
 This app is based on **MVVM** architecture:

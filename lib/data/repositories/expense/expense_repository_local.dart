@@ -50,22 +50,31 @@ class ExpenseRepositoryLocal extends ExpenseRepository {
   
   @override
   Future<Expense?> getExpense(int id) async {
-    List<Map<String, Object?>?> queryResult;
+    Map<String, Object?>? expenseMap;
     Expense? expense;
 
     try {
-      queryResult = await _database.query(
+      List<Map<String, Object?>?> expenseQueryResult = await _database.query(
         expensesTableName,
         where: 'id = ?',
         whereArgs: [id],
       );
+      if (expenseQueryResult.firstOrNull != null) {
+        expenseMap = expenseQueryResult.first!;
+        List<Map<String, Object?>?> categoryQueryResult = await _database.query(
+          categoriesTableName,
+          where: 'id = ?',
+          whereArgs: [expenseMap['category_id']],
+        );
+        expenseMap['category'] = categoryQueryResult.first!;
+      }
     } on DatabaseException catch (error) {
-      _log.warning('Expense query falied', error);
+      _log.warning('Expense query failed', error);
       return expense;
     }
 
-    if(queryResult.isNotEmpty && queryResult.firstOrNull != null) {
-      expense = Expense.fromMap(queryResult.firstOrNull!);
+    if(expenseMap != null) {
+      expense = Expense.fromMap(expenseMap);
     }
 
     return expense;
@@ -120,12 +129,15 @@ class ExpenseRepositoryLocal extends ExpenseRepository {
     List<Expense> expenses = List.empty(growable: true);
 
     try {
-      queryResult = await _database.query(
-          expensesTableName,
-          where: 'date >= ? AND date <= ?',
-          whereArgs: [DateFormat('yyyy-MM-dd').format(from), DateFormat('yyyy-MM-dd').format(to)],
-          orderBy: 'date',
-      );
+      queryResult = await _database.rawQuery('''
+        SELECT 
+          e.*, 
+          c.id AS c_id, c.name, c.color
+        FROM $expensesTableName e
+        LEFT JOIN categories c ON e.category_id = c.id
+        WHERE date >= ? AND date <= ?
+        ORDER BY date
+      ''', [DateFormat('yyyy-MM-dd').format(from), DateFormat('yyyy-MM-dd').format(to)]);
     } on DatabaseException catch (error) {
       _log.warning('Expenses query failed', error);
       return expenses;

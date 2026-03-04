@@ -49,9 +49,7 @@ class CategoriesScreenState extends State<CategoriesScreen> {
                   builder: (context) {
                     return SimpleDialog(
                       title: const Text('Add category'),
-                      children: [
-                        CategoryRegistrationForm(onSaveCategory: widget._viewModel.addCategory)
-                      ],
+                      children: [CategoryRegistrationForm(onSaveCategory: widget._viewModel.addCategory)],
                     );
                   }
                 )

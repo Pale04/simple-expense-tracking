@@ -12,16 +12,11 @@ class Category {
   });
 
   Map<String, Object?> toMap() {
-    var map = {
+    return {
+      'id': id,
       'name': name,
       'color': IdentificationColor.values[color.index].index,
     };
-
-    if (id != null) {
-      map['id'] = id!;
-    }
-
-    return map;
   }
 
   factory Category.fromMap(Map<String, Object?> map) {

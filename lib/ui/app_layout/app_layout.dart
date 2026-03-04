@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_expense_tracking/ui/expense_registration/expense_registration_bottom_sheet.dart';
 import 'package:simple_expense_tracking/ui/app_layout/app_layout_view_model.dart';
+import 'package:simple_expense_tracking/ui/expense_registration/expense_registration_bottom_sheet_view_model.dart';
 import 'package:simple_expense_tracking/ui/income_registration/income_registration_bottom_sheet.dart';
 import 'package:simple_expense_tracking/ui/shared/expandable_fab.dart';
 import '../../routing/routes.dart';
@@ -103,6 +105,7 @@ class _AppLayoutState extends State<AppLayout> {
           ),
           ActionButton(
             onPressed: () {
+              final ExpenseRegistrationBottomSheetViewModel expenseRegistrationViewModel = ExpenseRegistrationBottomSheetViewModel(categoryRepository: context.read());
               Future<bool?> registrationResult = showModalBottomSheet<bool>(
                 enableDrag: false,
                 useRootNavigator: true,
@@ -110,7 +113,10 @@ class _AppLayoutState extends State<AppLayout> {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 ),
-                builder: (BuildContext context) => ExpenseRegistrationBottomSheet(onExpenseSaved: (expense) => widget._viewModel.addExpense(expense))
+                builder: (BuildContext context) => ExpenseRegistrationBottomSheet(
+                  viewModel: expenseRegistrationViewModel,
+                  onExpenseSaved: (expense) => widget._viewModel.addExpense(expense)
+                )
               );
 
               registrationResult.then((result) {

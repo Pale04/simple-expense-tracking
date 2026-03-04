@@ -32,7 +32,7 @@ class HistoryScreenViewModel extends ChangeNotifier {
     currency = settingsRepository.getCurrencySign();
   }
 
-  void updateActualTab(int tab) async {
+  void updateActualTabTransactions(int tab) async {
     actualTab = tab;
     if (tab == 0) {
       expensesList = await _expenseRepository.getExpensesByDatesRange(dateRange[0], dateRange[1]);

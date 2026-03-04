@@ -22,7 +22,8 @@ class ExpenseCard extends StatelessWidget {
       date: _expense.date,
       currencySymbol: _currencySymbol,
       amount: _expense.amount,
-      onExpenseTapped: () => _onExpenseTapped(_expense.id!)
+      onExpenseTapped: () => _onExpenseTapped(_expense.id!),
+      category: _expense.category,
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../domain_models/category.dart';
+
 class TransactionCard extends StatelessWidget {
   final String _title;
   final IconData _icon;
@@ -8,6 +10,7 @@ class TransactionCard extends StatelessWidget {
   final String _currencySymbol;
   final double _amount;
   final void Function() _onExpenseTapped;
+  final Category? _category;
 
   const TransactionCard({
     super.key,
@@ -16,8 +19,15 @@ class TransactionCard extends StatelessWidget {
     required DateTime date,
     required String currencySymbol,
     required double amount,
-    required void Function() onExpenseTapped
-  }) : _title = title, _icon = icon, _date = date, _currencySymbol = currencySymbol, _amount = amount, _onExpenseTapped = onExpenseTapped;
+    required void Function() onExpenseTapped,
+    Category? category
+  }) : _title = title,
+        _icon = icon,
+        _date = date,
+        _currencySymbol = currencySymbol,
+        _amount = amount,
+        _onExpenseTapped = onExpenseTapped,
+        _category = category;
 
   @override
   Widget build(BuildContext context) {
@@ -31,21 +41,34 @@ class TransactionCard extends StatelessWidget {
           width: double.infinity,
           padding: EdgeInsets.fromLTRB(10, 8, 14, 8),
           child: Row(
-            spacing: 8,
+            spacing: 10,
             children: [
               Icon(_icon),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: 4,
+                  spacing: 6,
                   children: [
                     Text(
                       _title,
                       style: Theme.of(context).textTheme.labelLarge
                     ),
-                    Text(
-                      DateFormat('dd/MMMM/yyyy').format(_date),
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.grey),
+                    Row (
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          DateFormat('MMMM dd').format(_date),
+                          style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.grey),
+                        ),
+                        ? _category != null ? Container (
+                          decoration: BoxDecoration(
+                            color: Color(_category.color.hexCode),
+                            borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),
+                          padding: EdgeInsetsGeometry.symmetric(vertical: 2, horizontal: 8),
+                          child: Text(_category.name),
+                        ) : null
+                      ],
                     )
                   ],
                 ),

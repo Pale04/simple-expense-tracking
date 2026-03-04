@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_expense_tracking/ui/expense_editing/expense_editing_form.dart';
+import 'package:simple_expense_tracking/ui/expense_editing/expense_editing_form_view_model.dart';
 import 'package:simple_expense_tracking/ui/history/expense_card.dart';
 import 'package:simple_expense_tracking/ui/history/history_screen_view_model.dart';
 import 'package:simple_expense_tracking/ui/history/income_card.dart';
@@ -25,7 +28,7 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
 
     _tabController = TabController(vsync: this, length: 2);
     _tabController.addListener(() {
-      widget._viewModel.updateActualTab(_tabController.index);
+      widget._viewModel.updateActualTabTransactions(_tabController.index);
     });
 
     String startDate = DateFormat('dd/MM/yyyy').format(widget._viewModel.dateRange[0]);
@@ -139,6 +142,24 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
                                     Navigator.pop(context);
                                   },
                                   child: const Text('Delete'),
+                                ),
+                                SimpleDialogOption(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Future<bool?> dialogResult =  showDialog<bool>(context: context, builder: (context) {
+                                      final ExpenseEditingFormViewModel viewModel = ExpenseEditingFormViewModel(
+                                          expenseRepository: context.read(),
+                                          categoryRepository: context.read(),
+                                          expense: widget._viewModel.expensesList[index]
+                                      );
+                                      return SimpleDialog(
+                                        title: Text('Edit expense'),
+                                        children: [ExpenseEditingForm(viewModel: viewModel)],
+                                      );
+                                    });
+                                    dialogResult.then((result) => widget._viewModel.updateActualTabTransactions(0));
+                                  },
+                                  child: const Text('Edit'),
                                 )
                               ],
                             );

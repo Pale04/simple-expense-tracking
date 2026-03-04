@@ -4,4 +4,5 @@ abstract class CategoryRepository {
   Future<int> addExpenseCategory(Category category);
   Future<bool> deleteExpenseCategory(int id);
   Future<List<Category>> getAllCategories();
+  Future<Category?> getCategory(int id);
 }
