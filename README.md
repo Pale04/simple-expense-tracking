@@ -33,23 +33,23 @@ This app is recommended for students, housewives and people who has a rapid life
 - Categories management:
   - Add category
   - Remove category
+- View monthly statistics about spent money by category
 
 ### Upcoming features
-1. Chart with expenses statistics per month
-2. Update category
-3. More available colors for category customization
-4. Show statistics about month expenses
-5. Update expense
-6. Update incomes
-7. Show extra statistics about financial activity
-8. Create custom tags/categories incomes
-9. Filter income/expenses in searching feature
-10. Schedule recurring transactions
-11. Dark mode support
-12. Cloud backup support
-13. Export financial activity report to PDF
-14. Internationalized UI for spanish language
-15. Manage expenses and incomes with different currencies at the same time
+1. Update category
+2. More available colors for category customization
+3. Show statistics about month expenses
+4. Update expense
+5. Update incomes
+6. Show extra statistics about financial activity
+7. Create custom tags/categories incomes
+8. Filter income/expenses in searching feature
+9. Schedule recurring transactions
+10. Dark mode support
+11. Cloud backup support
+12. Export financial activity report to PDF
+13. Internationalized UI for spanish language
+14. Manage expenses and incomes with different currencies at the same time
 
 ## Installation
 The following instructions show how to install the project in your computer in order to analyze it, test it or even add new features.
@@ -124,6 +124,7 @@ The project follows the coding standards of flutter applications.
 | **command_it**                    | Implement the command pattern in the UI layer  |
 | **logging**                       | Add logging through the application layers     |
 | **syncfusion_flutter_datepicker** | Enhance UX in forms with date pickers          |
+| **syncfusion_flutter_charts**     | Provide components to create charts            |
 | **shared_preferences**            | Store key-value data locally                   |
 
 ### Testing

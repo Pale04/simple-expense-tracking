@@ -6,14 +6,26 @@ class DatePickerFormField extends StatelessWidget {
   final void Function(List<DateTime>) _onDateSelected;
   final DateRangePickerSelectionMode _selectionMode;
   final List<DateTime> _initialSelectedDates;
+  final DateRangePickerView _view;
+  final Text? _label;
+  final InputBorder? _border;
   
   const DatePickerFormField({
     super.key,
     required TextEditingController controller,
     required void Function(List<DateTime>) onDateSelected,
-    DateRangePickerSelectionMode selectionMode = DateRangePickerSelectionMode.single,
     required List<DateTime> initialSelectedDates,
-  }) : _controller = controller, _onDateSelected = onDateSelected, _selectionMode = selectionMode, _initialSelectedDates = initialSelectedDates;
+    DateRangePickerSelectionMode selectionMode = DateRangePickerSelectionMode.single,
+    DateRangePickerView view = DateRangePickerView.month,
+    Text? label,
+    InputBorder? border
+  }) :  _controller = controller,
+        _onDateSelected = onDateSelected,
+        _selectionMode = selectionMode,
+        _initialSelectedDates = initialSelectedDates,
+        _view = view,
+        _label = label,
+        _border = border;
   
   @override
   Widget build(BuildContext context) {
@@ -21,8 +33,9 @@ class DatePickerFormField extends StatelessWidget {
       validator: (value) => value == null || value.trim().isEmpty ? 'Enter a date' : null,
       controller: _controller,
       decoration: InputDecoration(
-        hintText: 'Date',
-        suffixIcon: Icon(Icons.calendar_today)
+        label: _label,
+        suffixIcon: Icon(Icons.calendar_today),
+        border: _border
       ),
       onTap: () async {
         await showDialog(
@@ -31,6 +44,8 @@ class DatePickerFormField extends StatelessWidget {
             child: SizedBox(
               height: 350,
               child: SfDateRangePicker(
+                view: _view,
+                allowViewNavigation: _view != DateRangePickerView.year,
                 selectionMode: _selectionMode,
                 backgroundColor: Colors.white,
                 initialSelectedDate: _selectionMode == DateRangePickerSelectionMode.single ? _initialSelectedDates[0] : null,

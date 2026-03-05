@@ -76,7 +76,7 @@ class _AppLayoutState extends State<AppLayout> {
           ),
         ],
       ),
-      floatingActionButton: ExpandableFab(
+      floatingActionButton: widget._viewModel.page == 0 ? ExpandableFab(
         distance: 70,
         children: [
           ActionButton(
@@ -132,7 +132,7 @@ class _AppLayoutState extends State<AppLayout> {
             color: Color(0xFFF76F33),
           ),
         ],
-      ),
+      ) : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       resizeToAvoidBottomInset: false,
       drawer: Drawer(

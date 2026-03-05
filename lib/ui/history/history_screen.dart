@@ -148,9 +148,9 @@ class HistoryScreenState extends State<HistoryScreen> with SingleTickerProviderS
                                     Navigator.pop(context);
                                     Future<bool?> dialogResult =  showDialog<bool>(context: context, builder: (context) {
                                       final ExpenseEditingFormViewModel viewModel = ExpenseEditingFormViewModel(
-                                          expenseRepository: context.read(),
-                                          categoryRepository: context.read(),
-                                          expense: widget._viewModel.expensesList[index]
+                                        expenseRepository: context.read(),
+                                        categoryRepository: context.read(),
+                                        expense: widget._viewModel.expensesList[index]
                                       );
                                       return SimpleDialog(
                                         title: Text('Edit expense'),

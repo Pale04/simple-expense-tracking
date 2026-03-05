@@ -69,14 +69,13 @@ class CategoryRepositoryLocal extends CategoryRepository {
   }
 
   @override
-  Future<Category?> getCategory(int id) async {
+  Future<bool?> isCategoryInUse(int id) async {
     List<Map<String, Object?>?> queryResult;
-    Category? category;
 
     try {
       queryResult = await _database.query(
-        categoriesTableName,
-        where: 'id = ?',
+        expensesTableName,
+        where: 'category_id = ?',
         whereArgs: [id]
       );
     } on DatabaseException catch (error) {
@@ -84,11 +83,7 @@ class CategoryRepositoryLocal extends CategoryRepository {
       return null;
     }
 
-    if (queryResult.isNotEmpty) {
-      category = Category.fromMap(queryResult.first!);
-    }
-
-    return category;
+    return queryResult.isNotEmpty;
   }
 
 }

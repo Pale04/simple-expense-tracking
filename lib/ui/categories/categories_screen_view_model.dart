@@ -23,7 +23,7 @@ class CategoriesScreenViewModel extends ChangeNotifier {
   }
 
   void deleteCategory(int id) async {
-    if (await _repository.getCategory(id) == null) {
+    if (await _repository.isCategoryInUse(id) == false) {
       await _repository.deleteExpenseCategory(id);
       getCategories();
     }
